@@ -76,3 +76,8 @@ export const CTA_CONTENT = {
     buttonText: "Falar no WhatsApp",
     subtext: "LinkedIn • GitHub • Email"
 };
+export const FOOTER_CONTENT = {
+    text: "Feito por Bruno Malossi © 2026. Todos os direitos reservados.",
+    resumeButton: "Baixar Currículo (PDF)",
+    resumeLink: "/curriculo-bruno-malossi.pdf"
+};

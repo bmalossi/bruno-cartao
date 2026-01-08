@@ -4,6 +4,7 @@ import Expertise from "./components/Expertise";
 import ServicesCards from "./components/ServicesCards";
 import CaseStudy from "./components/CaseStudy";
 import CTA from "./components/CTA";
+import Footer from "./components/Footer";
 
 // Smooth scrolling for anchor links
 const SmoothScroll = () => {
@@ -37,6 +38,7 @@ function App() {
             <ServicesCards />
             <CaseStudy />
             <CTA />
+            <Footer />
         </div>
     );
 }
