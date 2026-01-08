@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system AUTOMAB - todas as cores em HSL e tokens reutilizáveis */
+
+@layer base {
+  :root {
+    /* Core palette (dark-first) */
+    --background: 210 40% 4%;
+    /* #05070a approx */
+    --foreground: 210 40% 96%;
+
+    --card: 210 40% 6%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 210 40% 6%;
+    --popover-foreground: 210 40% 96%;
+
+    /* AUTOMAB blue */
+    --primary: 197 57% 53%;
+    /* #3D9FD2 */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 20% 14%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 210 16% 18%;
+    --muted-foreground: 210 10% 70%;
+
+    --accent: 197 57% 18%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 16% 20%;
+    --input: 210 16% 20%;
+    --ring: 197 57% 53%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar (shadcn) harmonizado com o tema */
+    --sidebar-background: 210 40% 6%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 197 57% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 20% 14%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 210 16% 20%;
+    --sidebar-ring: 197 57% 53%;
+
+    /* Extra tokens para o layout AUTOMAB */
+    --automab-hero-bg: 210 40% 4%;
+    --automab-section-bg: 210 24% 8%;
+    --automab-section-alt-bg: 210 24% 10%;
+    --automab-text-muted: 210 10% 70%;
+
+    /* Analytics Theme Tokens */
+    --analytics-accent: 197 57% 53%;
+    --analytics-accent-strong: 197 57% 48%;
+    --analytics-deep-blue: 210 40% 6%;
+    --analytics-bg: 210 40% 4%;
+    --analytics-text: 210 40% 96%;
+    --analytics-text-main: 210 40% 96%;
+    --analytics-text-muted: 210 10% 70%;
+    --analytics-border: 210 16% 20%;
+    --analytics-card-bg: 210 40% 6%;
+    --analytics-positive: 142 76% 36%;
+    --analytics-negative: 0 72% 45%;
+    --analytics-header-to: 210 40% 4%;
+
+    /* Tipografia (utilizada com classes Tailwind) */
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .dark {
+    /* Mantém o mesmo esquema pois o site é essencialmente dark-first */
+    --background: 210 40% 4%;
+    --foreground: 210 40% 96%;
+
+    --card: 210 40% 6%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 210 40% 6%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 197 57% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 20% 14%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 210 16% 18%;
+    --muted-foreground: 210 10% 70%;
+
+    --accent: 197 57% 18%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 16% 20%;
+    --input: 210 16% 20%;
+    --ring: 197 57% 53%;
+
+    --sidebar-background: 210 40% 6%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 197 57% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 20% 14%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 210 16% 20%;
+    --sidebar-ring: 197 57% 53%;
+
+    --analytics-accent: 197 57% 53%;
+    --analytics-accent-strong: 197 57% 48%;
+    --analytics-deep-blue: 210 40% 6%;
+    --analytics-bg: 210 40% 4%;
+    --analytics-text: 210 40% 96%;
+    --analytics-text-main: 210 40% 96%;
+    --analytics-text-muted: 210 10% 70%;
+    --analytics-border: 210 16% 20%;
+    --analytics-card-bg: 210 40% 6%;
+    --analytics-positive: 142 76% 36%;
+    --analytics-negative: 0 72% 45%;
+    --analytics-header-to: 210 40% 4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+
+  /* Hero background com estrelas e círculo (planeta) */
+  .automab-hero {
+    @apply relative min-h-screen overflow-hidden text-foreground;
+    background:
+      radial-gradient(circle at 50% -20%, hsl(210 40% 12%) 0, hsl(210 40% 4%) 45%, hsl(210 40% 2%) 70%),
+      radial-gradient(circle at 50% 140%, hsl(210 40% 8%) 0, hsl(210 40% 2%) 55%, hsl(210 40% 0%) 80%);
+  }
+
+  .automab-stars-layer {
+    position: absolute;
+    inset: -50%;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 10% 20%, hsl(0 0% 100% / 0.28) 1px, transparent 0),
+      radial-gradient(circle at 80% 10%, hsl(0 0% 100% / 0.22) 1px, transparent 0),
+      radial-gradient(circle at 50% 80%, hsl(0 0% 100% / 0.18) 1px, transparent 0),
+      radial-gradient(circle at 20% 70%, hsl(197 57% 53% / 0.22) 1px, transparent 0);
+    background-size: 260px 260px, 320px 320px, 280px 280px, 340px 340px;
+    opacity: 0.65;
+  }
+
+  .automab-planet {
+    position: absolute;
+    inset-inline: 50%;
+    bottom: -28%;
+    width: min(46rem, 90vw);
+    aspect-ratio: 1/1;
+    transform: translateX(-50%);
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 50% 0%, hsl(210 40% 20% / 0.8) 0, transparent 40%),
+      radial-gradient(circle at 50% 80%, hsl(210 40% 4%) 0, hsl(210 40% 3%) 55%, hsl(210 40% 1.8%) 100%);
+    box-shadow:
+      inset 0 0 110px hsl(197 57% 53% / 0.18),
+      0 0 90px hsl(210 40% 2% / 0.9);
+    opacity: 0.96;
+  }
+
+  @media (max-width: 768px) {
+    .automab-planet {
+      bottom: -16%;
+    }
+  }
+
+  .automab-planet::after {
+    content: "";
+    position: absolute;
+    inset-inline: -35%;
+    bottom: -18%;
+    height: 60%;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 50% 0%, hsl(197 57% 60% / 0.7) 0, transparent 55%),
+      radial-gradient(circle at 50% 40%, hsl(210 40% 90% / 0.18) 0, transparent 60%);
+    filter: blur(26px);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out hover:scale-[1.02];
+  }
+
+  .story-link {
+    position: relative;
+    display: inline-block;
+  }
+
+  .story-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    background: hsl(var(--primary));
+    transition: transform 0.3s ease;
+  }
+
+  .story-link:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+
+  .pulse {
+    @apply animate-[pulse_2s_cubic-bezier(0.4, 0, 0.6, 1)_infinite];
+  }
+
+  /* Efeito moderno de texto surgindo borrado e ficando nítido */
+  @keyframes automab-blur-reveal {
+    0% {
+      filter: blur(14px);
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    45% {
+      opacity: 1;
+    }
+
+    100% {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .blur-reveal {
+    animation: automab-blur-reveal 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  .blur-reveal-delay {
+    animation-delay: 0.18s;
+  }
+
+  .blur-reveal-delay-2 {
+    animation-delay: 0.32s;
+  }
+
+  /* Esteira suave de logos de clientes */
+  @keyframes automab-clients-marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .automab-clients-track {
+    display: flex;
+    width: max-content;
+    animation: automab-clients-marquee 38s linear infinite;
+  }
+}
