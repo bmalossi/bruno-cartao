@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SERVICES } from "../constants";
-import { Wrench, Bot, BarChart3, ChevronRight, X, MessageCircle } from "lucide-react";
+import { Wrench, Bot, BarChart3, ChevronRight, X, MessageCircle, BookOpen } from "lucide-react";
 
 const icons = {
     automation: Wrench,
     chatbots: Bot,
-    reports: BarChart3
+    reports: BarChart3,
+    "content-marketing": BookOpen
 };
 
 const ServicesCards = () => {
@@ -45,7 +46,7 @@ const ServicesCards = () => {
                                             <h3 className="font-semibold text-foreground text-lg">{service.shortTitle}</h3>
                                         </div>
                                     </div>
-                                    <span className="text-xs text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                    <span className="text-xs text-primary font-medium transition-opacity flex items-center gap-1">
                                         Explorar <ChevronRight size={14} />
                                     </span>
                                 </div>

@@ -80,22 +80,19 @@ const CaseStudy = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                    {/* Dynamic mapping based on constants */}
-                    {(() => {
-                        const consorciados = CASE_STUDY.stats.find(s => s.label === "Consorciados");
-                        const reducao = CASE_STUDY.stats.find(s => s.label === "Redução de horas");
-                        const adimplencia = CASE_STUDY.stats.find(s => s.label === "Adimplência");
-
-                        const [fromVal, toVal] = adimplencia ? adimplencia.value.split(" → ") : ["0%", "0%"];
-
+                    {CASE_STUDY.stats.map((stat, index) => {
+                        if (stat.label === "Adimplência") {
+                            const [fromVal, toVal] = stat.value.split(" → ");
+                            return <ProgressBar key={index} from={fromVal} to={toVal} />;
+                        }
                         return (
-                            <>
-                                <Counter value={consorciados?.value || ""} label={consorciados?.label || "Consorciados"} />
-                                <Counter value={reducao?.value || 0} label={reducao?.label || "Redução de horas"} />
-                                <ProgressBar from={fromVal} to={toVal} />
-                            </>
+                            <Counter
+                                key={index}
+                                value={stat.value}
+                                label={stat.label}
+                            />
                         );
-                    })()}
+                    })}
                 </div>
 
                 <div className="bg-background/40 rounded-xl p-6 border border-border/50 space-y-4 backdrop-blur-sm">
